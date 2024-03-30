@@ -20,21 +20,20 @@ with jsonlines.open(jsonl_file_path) as reader:
     for document in reader:
         content_to_summarise = document.get('abstract', '')#summarising abstract
         
-        # Check if there is content to summarise
+        # Checks if theres content to summarise
         if content_to_summarise:
             try:
                 # Call the API to generate a summary
-                response = model.generate_content(f'Please summarise this biomedical abstract for a general audience. {content_to_summarise}')
-                summary = response.text  # Assuming response.text contains the summary text
+                response = model.generate_content(f'Please summarise this biomedical abstract to the layperson. {content_to_summarise}')
+                summary = response.text  
                 
-                # Handle the length of the summary if needed
-                summary_words = summary.split()[:200]  # Example: Limiting to first 200 words
+                summary_words = summary.split()[:200]  # Limiting to first 200 words
                 summary = ' '.join(summary_words)
                 
                 # Print a header with the summary number and then the summary
                 print(f"Biomedical Paper {summary_number} Summary:\n{summary}\n")
                 print("--------------------------------------------------\n")  # Line space for differentiation
-                summary_number += 1  # Increment the counter
+                summary_number += 1  # Increment counter
             except Exception as e:
                 print(f"Failed to generate summary for document due to an error: {str(e)}\n")
         else:
