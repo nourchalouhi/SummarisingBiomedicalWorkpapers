@@ -1,2 +1,1 @@
 plos_corpus/train_plos.jsonl filter=lfs diff=lfs merge=lfs -text
-data/train_plos.jsonl filter=lfs diff=lfs merge=lfs -text
