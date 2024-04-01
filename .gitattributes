@@ -2,4 +2,3 @@ plos_corpus/train_plos.jsonl filter=lfs diff=lfs merge=lfs -text
 path/to/largefile filter=lfs diff=lfs merge=lfs -text
 *.file_extension filter=lfs diff=lfs merge=lfs -text
 *.jsonl filter=lfs diff=lfs merge=lfs -text
-data/train_plos.jsonl filter=lfs diff=lfs merge=lfs -text
