@@ -8,3 +8,4 @@ data/train_plos.jsonl
 .DS_Store
 __pycache__/
 *.pyc
+.env
