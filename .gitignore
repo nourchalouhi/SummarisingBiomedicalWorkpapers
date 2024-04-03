@@ -1,11 +1,14 @@
-data/train_plos.jsonl
+# Ignore all .DS_Store files in any directory
 .DS_Store
-src/data/dev_plos.jsonl
-src/data/summaries/dev_plos.jsonl
-.DS_Store
-data/train_plos.jsonl
+
+# Ignore all .env files to prevent committing sensitive environment variables
 .env
-.DS_Store
+
+# Ignore Python compiled files
 __pycache__/
 *.pyc
-.env
+
+# Ignore specific large data files that shouldn't be tracked
+data/train_plos.jsonl
+src/data/dev_plos.jsonl
+src/data/summaries/dev_plos.jsonl
