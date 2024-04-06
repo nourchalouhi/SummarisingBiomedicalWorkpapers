@@ -1,41 +1,55 @@
-from dotenv import load_dotenv
-import os
+from dotenv import load_dotenv # loads API
+import os #fetch environmental variables 
 import jsonlines
 import google.generativeai as genai
+from rouge_score import rouge_scorer
 
-# Load the environment variables
+# .env
 load_dotenv()
 
-# Configuration for the API
+#configuration for the API
 api_key = os.getenv('API_KEY')
 genai.configure(api_key=api_key)
 model = genai.GenerativeModel('gemini-pro')
 
+# Initialise the RougeScorer
+scorer = rouge_scorer.RougeScorer(['rouge1', 'rouge2', 'rougeL'], use_stemmer=True)
+
 # Set the path directly to your JSONL file
 jsonl_file_path = '/Users/nourchalouhi/Documents/COMP4092 Summarising Biomedical Workpapers to the Layperson/Summarisation Testing/src/data/dev_plos.jsonl'
 
-# Open and read the contents of the JSONL file
-with jsonlines.open(jsonl_file_path) as reader:
-    summary_number = 1  # Start counter for summaries
+with jsonlines.open(jsonl_file_path) as reader:# JSONL file reader
+    summaryCount = 1  # counter
     for document in reader:
-        content_to_summarise = document.get('abstract', '')#summarising abstract
+        abstract = document.get('abstract', '')
+        refSummary = document.get('plain language summary', '')  #fetch the ref ummary
         
-        # Checks if theres content to summarise
-        if content_to_summarise:
+        #check if there's content to summarise and a ref summary
+        if abstract and refSummary:
             try:
-                # Call the API to generate a summary
-                response = model.generate_content(f'Please summarise this biomedical abstract to the layperson. {content_to_summarise}')
-                summary = response.text  
+                #call API 
+                response = model.generate_content(f'Please summarise this biomedical abstract to the layperson. {abstract}')
+                summaryGenerated = response.text
                 
-                summary_words = summary.split()[:200]  # Limiting to first 200 words
-                summary = ' '.join(summary_words)
+                #200 words limit
+                summaryWords = summaryGenerated.split()[:200]
+                summaryGenerated = ' '.join(summaryWords)
                 
-                # Print a header with the summary number and then the summary
-                print(f"Biomedical Paper {summary_number} Summary:\n{summary}\n")
-                print("--------------------------------------------------\n")  # Line space for differentiation
-                summary_number += 1  # Increment counter
+                #calculate the ROUGE scores
+                scores = scorer.score(refSummary, summaryGenerated)
+                
+                # Formatting output
+                print(f"Biomedical Paper {summaryCount} Summary:\n{summaryGenerated}\n")
+                print("ROUGE Scores:")
+                for score_type, score in scores.items():
+                    print(f"  {score_type}: Precision: {score.precision:.4f}, Recall: {score.recall:.4f},  F1: {score.fmeasure:.4f}")
+               #F1 formula score :2 * (precision * recall) / (precision + recall)
+
+                print("--------------------------------------------------\n")  #spacing
+                
             except Exception as e:
-                print(f"Failed to generate summary for document due to an error: {str(e)}\n")
+                print(f"Failed to generate summary for document {summaryCount} due to an error: {str(e)}\n")
         else:
-            print(f"No content to summarise found in document {summary_number}.\n")
-            summary_number += 1  # Increment the counter
+            print(f"Document {summaryCount} is missing necessary data.\n")
+        
+        summaryCount += 1
