@@ -1,3 +1,39 @@
+
+summariseInput.py
+Different prompt input comparisons
+response1 = model.generate_content(f'Please explain the main findings of this biomedical abstract in simple language that a non-expert would understand: {abstract}')
+
+response2 = model.generate_content(f'Please summarise this biomedical abstract to the layperson: {abstract}')
+SummariseInput 
+...
+Processed document 992
+Processed document 993
+Processed document 994
+Processed document 995
+Processed document 996
+Processed document 997
+Processed document 998
+Processed document 999
+Processed document 1000
+
+Final ROUGE Score Comparison:
+Average ROUGE Scores for Prompt 1:
+  rouge1: 0.3675
+  rouge2: 0.0760
+  rougeL: 0.1877
+Average ROUGE Scores for Prompt 2:
+  rouge1: 0.3646
+  rouge2: 0.0759
+  rougeL: 0.1905
+For rouge1, Prompt 1 performed better.
+For rouge2, Prompt 1 performed better.
+For rougeL, Prompt 2 performed better.
+(Biomedical-Paper-Summarisation-Project) (base) nourchalouhi@Nours-MBP Summarisation Testing % 
+
+
+
+summary.py
+
 1-1000 Papers tested- Result displayed range 929-1000
 
 Biomedical Paper 929 Summary:
