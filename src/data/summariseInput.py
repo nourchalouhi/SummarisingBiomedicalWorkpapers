@@ -45,11 +45,11 @@ with jsonlines.open(jsonl_file_path) as reader:
         
         summaryCount += 1
 
-# Calculate average scores
+#calculates the average scores
 averageScores1 = {key: sum(values)/ len(values) for key, values in totalScores1.items()}
 averageScores2 = {key: sum(values)/ len(values) for key, values in totalScores2.items()}
 
-# Display the final comparison
+#display the final comparison
 print("\nFinal ROUGE Score Comparison:")
 print("Average ROUGE Scores for Prompt 1:")
 
