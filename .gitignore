@@ -8,7 +8,10 @@
 __pycache__/
 *.pyc
 
-# Ignore specific large data files that shouldn't be tracked
-data/train_plos.jsonl
-src/data/dev_plos.jsonl
-src/data/summaries/dev_plos.jsonl
+# Ignore specific large data files (JSON files) in PLOS and eLife directories
+dataSets/plos/*.json
+dataSets/elife/*.json
+
+# Allow README.md files to be tracked, even in ignored directories
+!dataSets/plos/README.md
+!dataSets/elife/README.md
