@@ -1,4 +1,4 @@
-Biomedical Paper Summarisation Project — Source Code Overview
+Biomedical Paper Summarisation Project - Source Code Overview
 
 
 This folder contains all Python scripts developed and used throughout my thesis experiments on biomedical paper summarisation using large language models (LLMs). 
