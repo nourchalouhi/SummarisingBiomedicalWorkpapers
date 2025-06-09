@@ -27,7 +27,7 @@ The repository is structured as follows:
 - **`dataSets/`**: Contains the datasets used for training, validating, and testing the models.
 - **`records/`**: Contains all minutes and progress through the projet
 - **`src/`**: Source code for the project.
-  - **`promptTesting.py`**: Main script for testing and refining prompt engineering techniques.
+
 
 ---
 
@@ -40,6 +40,4 @@ The primary objectives of this research project are:
 3. **Develop Domain-Specific Prompts**: Fine-tune prompts with domain-specific inputs based on PLS guidelines to enhance the quality of the outputs.
 4. **Evaluate Summaries**: Use readability scores (e.g., Flesch-Kincaid), ROUGE, and BERTScore to assess the readability, relevance, and factuality of the generated summaries.
 
----
 
-## How to Use This Repository
