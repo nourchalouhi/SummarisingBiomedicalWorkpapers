@@ -38,7 +38,7 @@ Direct comparison of summarisation prompts, models, and output metrics.
 
 	•	xero_biomed_summ_benchmark.py
 
-(Custom variant; e.g. new metric integrations, model-specific evaluation, or for Xero-specific experiments—adapt description as needed.)
+(Custom variant; e.g. new metric integrations, model-specific evaluation, or for Xero-specific experiments adapt description as needed.)
 
 ⸻
 
@@ -48,13 +48,11 @@ Direct comparison of summarisation prompts, models, and output metrics.
 
 	•	Each file targets a particular experimental question, evaluation scenario, or model setup.
 
-	•	Scripts are not always standalone or production-ready—many are for rapid prototyping, comparison, and batch runs on datasets.
+	•	Scripts are not always standalone or production-ready many are for rapid prototyping, comparison, and batch runs on datasets.
 
 	•	For more details on how each experiment informed the thesis, please refer to the main thesis document or experimental appendix.
 
-⸻
 
-## Usage
 
 	•	Please review each script’s top-level comments and adjust file paths, API keys, or dependencies as needed before running.
 
