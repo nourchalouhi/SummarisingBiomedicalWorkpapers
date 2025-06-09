@@ -1,4 +1,4 @@
-Biomedical Paper Summarisation Project - Source Code Overview
+# Biomedical Paper Summarisation Project - Source Code Overview
 
 
 This folder contains all Python scripts developed and used throughout my thesis experiments on biomedical paper summarisation using large language models (LLMs). 
@@ -7,7 +7,7 @@ Each script represents a different benchmarking pipeline, evaluation routine, or
 
 ⸻
 
-File Descriptions
+## File Descriptions
 
 	•	biomed_prompt_comparison.py
 
@@ -42,7 +42,7 @@ Direct comparison of summarisation prompts, models, and output metrics.
 
 ⸻
 
-Notes
+## Notes
 
 	•	All scripts were used at different stages of experimentation and iteration for my thesis.
 
@@ -54,7 +54,7 @@ Notes
 
 ⸻
 
-Usage
+## Usage
 
 	•	Please review each script’s top-level comments and adjust file paths, API keys, or dependencies as needed before running.
 
